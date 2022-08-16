@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="2.5" method="upgrade" group="hikashoppayment">
+	<name>Hikashop Lunar Payment Plugin</name>
+	<creationDate>19 April 2022</creationDate>
+	<version>1.0.0</version>
+	<author>Lunar</author>
+	<authorEmail>support@lunar.app</authorEmail>
+	<authorUrl>https://lunar.app</authorUrl>
+	<copyright>(C) 2022-2022 Lunar. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>This plugin enables you to setup your Check payment system</description>
+	<files>
+		<filename plugin="lunar">lunar.php</filename>
+		<filename>index.html</filename>
+		<filename>lunar_configuration.php</filename>
+		<filename>lunar_end.php</filename>
+		<filename>lunar.sql</filename>
+		<filename>uninstall.lunar.sql</filename>
+		<filename>composer.lock</filename>
+		<filename>composer.json</filename>
+		<folder>Lunar</folder>
+		<folder>vendor</folder>
+		<folder>helpers</folder>
+	</files>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">lunar.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">uninstall.lunar.sql</file>
+		</sql>
+	</uninstall>
+	<languages>
+        <language tag="en-GB">en-GB.plg_hikashoppayment_lunar.ini</language>
+		<language tag="en-GB">en-GB.plg_hikashoppayment_lunar.sys.ini</language>
+    </languages>
+	<params addpath="/components/com_hikashop/params">
+		<param name="pluginoptions" type="pluginoptions" default="plugin" label="hikashop" description="HikaShop options" />
+	</params>
+	<config>
+		<fields name="params" addfieldpath="/components/com_hikashop/fields">
+			<fieldset name="basic">
+				<field id="pluginoptions" name="pluginoptions" type="pluginoptions" label="hikashop" description="HikaShop options" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
